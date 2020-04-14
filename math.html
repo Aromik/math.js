@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Math</title>
+        <style>
+        .button {font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: blue;}
+        h1 {font-family: Helvetica, Arial, sans-serif; font-size: 40px; color: blue;}
+        html {background-color: skyblue;}
+        img {float: right}
+        #check {font-weight: bold; font-size: 14px; font-family: Helvetica, Arial, sans-serif; color:red}
+        </style>
+    </head>
+    <body>
+        <img src="milaya-sova.jpg" alt="Милая сова">
+        <h1>Универсальный калькулятор</h1>
+        <script>
+          var Math = function() {
+
+};
+m = new Math;
+Math.prototype.check = function() {
+  var x = prompt('Какое делимое?');
+  var y = prompt('Какой делитель?')
+  alert(x % y === 0);
+};
+Math.prototype.checkprogram = function(x, y) {
+  return(x % y === 0);
+};
+Math.prototype.write = function() {
+  var number = prompt('Каково число?');
+  var resultMass = [];
+  for(var i = 1; i < number + 1; i++) {
+    var result = number % i;
+    if(result === 0) {
+      resultMass.push(i);
+    }
+  }
+  alert(resultMass);
+};
+Math.prototype.writeprogram = function(number) {
+  var resultMass = [];
+  for(var i = 1; i < number + 1; i++) {
+    var result = number % i;
+    if(result === 0) {
+      resultMass.push(i);
+    }
+  }
+  return(resultMass);
+};
+Math.prototype.isItEasy = function() {
+  var number = prompt("Каково число?");
+  var needToBeEasy = [1, number].join(' ');
+  var result = m.writeprogram(number).join(' ');
+  if(result === needToBeEasy) {
+    alert(true);
+  } else {
+    alert(false);
+  }
+};
+Math.prototype.isItEasyprogram = function(number) {
+  var needToBeEasy = [1, number].join(' ');
+  var result = m.writeprogram(number).join(' ');
+  if(result === needToBeEasy) {
+    return(true);
+  } else {
+    return(false);
+  }
+};
+Math.prototype.stepen = function() {
+  var podkorennoye = prompt('Каково число?');
+  var p = podkorennoye;
+  var pok = prompt('Какова степень?');
+  for(var i = 1; i < pok; i++) {
+    p = p * podkorennoye;
+  }
+  alert(p);
+};
+Math.prototype.factorial = function() {
+  var a = prompt('Каково число?')
+  var b = 1;
+  for(var t = 1; t <= a; t++) {
+    b = b * t;
+  }
+  alert(b);
+};
+Math.prototype.SL = function() {
+  var r = prompt('Каков радиус?');
+  r = parseFloat(r);
+  var whatToDo = prompt('Что нужно узнать (площадь - 1, длину - 2)?');
+  if(whatToDo === '1') {
+    alert(3.14 * r * r);
+    return;
+  }
+  if(whatToDo === '2') {
+    alert(2 * r * 3.14);
+    return;
+  }
+  alert('Неверные параметры!');
+  return;
+};
+Math.prototype.degressToRadian = function() {
+  var degress = prompt("Сколько градусов?");
+  degress = parseInt(degress);
+  var rad = 3.14 / 180;
+  alert(degress * rad);
+};
+Math.prototype.PS = function() {
+  var a = prompt('Какова длина?');
+  a = parseFloat(a);
+  var b = prompt('Какова ширина?');
+  a = parseFloat(a);
+  var whatToDo = prompt('Что нужно узнать (периметр - 1, площадь - 2)?')
+  if(whatToDo === "1") {
+    alert(2*a + 2*b);
+    return;
+  }
+  if(whatToDo === "2") {
+    alert(a * b);
+    return;
+  }
+  alert('Неверные параметры!');
+};
+Math.prototype.VSparallel = function() {
+  var a = parseFloat(prompt('Какова длина?'));
+  var b = parseFloat(prompt('Какова ширина?'));
+  var h = parseFloat(prompt('Какова высота?'));
+  var whatToDo = prompt('Что нужно узнать (объем - 1, площадь поверхности - 2)?');
+  if(whatToDo === "1") {
+    alert(a * b * h);
+    return;
+  }
+  if(whatToDo === "2") {
+    var S = 2*(a*b + b*h + a*h);
+    alert(S);
+    return;
+  }
+  alert("Неверные параметры!");
+  return;
+};
+Math.prototype.VSsphero = function(r, whatToDo) {
+  var r = parseFloat(prompt('Каков радиус?'));
+  var whatToDo = prompt('Что нужно узнать (объем - 1, площадь поверхности - 2)?')
+  if(whatToDo === "1") {
+    alert((4 / 3) * 3.14 * r * r * r);
+    return;
+  }
+  if(whatToDo === "2") {
+    alert(4 * 3.14 * r * r);
+    return;
+  }
+  alert('Неверные параметры!');
+  return;
+};
+Math.prototype.nearestEasy = function(i, bigger) {
+  var i = parseFloat(prompt('Каково число?'));
+  var bigger = prompt('Нужно число больше или меньше (1 или 0 соответственно)?');
+  var number, c;
+  if (bigger === "1") {
+    number = i - 1;
+    while (true) {
+      number++;
+      c = m.isItEasyprogram(number);
+      if (c)  {
+        alert(number);
+        break;
+      }
+    }
+  }
+  else {
+    number = i + 1;
+    while (true) {
+      number--;
+      c = m.isItEasyprogram(number);
+      if (c)  {
+        alert(number);
+        break;
+      }
+    }
+  }
+};
+Math.prototype.deleniye = function () {
+    var delimoye = parseFloat(prompt("Каково делимое?"));
+    var _delitel = parseFloat(prompt("Каков делитель?"));
+    var s = delimoye / _delitel;
+    s = s.toFixed(0);
+    var ost = delimoye - (_delitel * s);
+    var r = "Частное = " + s + ", остаток = " + ost;
+    alert(r);
+};
+
+Math.prototype.nearest_kratnoye = function () {
+  var n = parseFloat(prompt('Каково число?'));
+  var delitel = parseFloat(prompt('Каков делитель?'));
+  var bigger = prompt('Нужно число больше или меньше (1 или 0 соответственно)?')
+  var c, number;
+    if(bigger === '1') {
+      number = n - 1;
+      while(true) {
+        number++;
+        c = m.checkprogram(number, delitel);
+        if(c) {
+          alert(number);
+          return number;
+        }
+      }
+    } else {
+      number = n + 1;
+      while(true) {
+        number--;
+        c = m.checkprogram(number, delitel);
+        if(c) {
+          alert(number);
+          return number;
+        }
+      }
+    }
+};
+Math.prototype.med_ar = function(n) {
+  var n = prompt('Введите числа через пробел');
+  n = n.split(' ');
+  var b = n.length;
+  var a = 0;
+  for(var i = 0; i < b; i++) {
+    n[i]=parseFloat(n[i]);
+    a=a+n[i];
+  } 
+  alert(a/b);
+};
+        </script>
+        <p><input class="button" type="button" value="Делимость" onclick="m.check()"></p>
+        <p><input class="button" type="button" value="Выписать делители" onclick="m.write()"></p>
+        <p><input class="button" type="button" value="Простое ли число" onclick="m.isItEasy()"></p>
+        <p><input class="button" type="button" value="Возвести в степень" onclick="m.stepen()"></p>
+        <p><input class="button" type="button" value="Факториал" onclick="m.factorial()"></p>
+        <p><input class="button" type="button" value="Все про окружность" onclick="m.SL()"></p>
+        <p><input class="button" type="button" value="Перевод градусов в радианы" onclick="m.degressToRadian()"></p>
+        <p><input class="button" type="button" value="Все про прямоугольник" onclick="m.PS()"></p>
+        <p><input class="button" type="button" value="Все про параллелепипед" onclick="m.VSparallel()"></p>
+        <p><input class="button" type="button" value="Все про сферу" onclick="m.VSsphero()"></p>
+        <p><input class="button" type="button" value="Ближайшее простое число" onclick="m.nearestEasy()"></p>
+        <p><input class="button" type="button" value="Деление с остатком" onclick="m.deleniye()"></p>
+        <p><input class="button" type="button" value="Ближайшее кратное" onclick="m.nearest_kratnoye()"></p>
+        <p><input class="button" type="button" value="Среднее арифметическое" onclick="m.med_ar()"></p>
+        <p id="check">Проверено совами!</p>
+      </body>
+</html>
