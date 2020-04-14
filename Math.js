@@ -131,3 +131,11 @@ Math.prototype.nearest_kratnoye = function (n, delitel, bigger) {
 exports.connect = function(opts) {
   return new Math(opts);
 };
+Math.prototype.med_ar = function(n) {
+  var b = n.length;
+  var a = 0;
+  for(var i = 0; i < b; i++) {
+    a=a+n[i];
+  } 
+  return(a/b);
+}
